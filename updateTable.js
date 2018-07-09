@@ -1,2 +1,2 @@
-var active = active
-alert(active);
+var directions = cb_obj.active
+alert(directions);
