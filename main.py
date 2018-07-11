@@ -27,7 +27,8 @@ button = Button(label='Сформировать список', button_type = "su
 
 #def updateTable():
 #active = [checkbox_group.labels[i] for i in checkbox_group.active]
-df = pd.read_excel('./docs/' + files[5], skiprows=5, index_col=0)
+df = pd.read_excel('./docs/' + files[4], skiprows=5, index_col=0, usecols=[0,1,3,4,5,6,9])
+
 source = ColumnDataSource(df)
 columns = [TableColumn(field=df.columns.values[column], title=df.columns.values[column]) for column in range(df.shape[1])]
 data_table = DataTable(source = source, columns = columns)
@@ -36,4 +37,3 @@ data_table = DataTable(source = source, columns = columns)
 show(widgetbox(checkbox_group))
 show(widgetbox(button))
 show(widgetbox(data_table))
-

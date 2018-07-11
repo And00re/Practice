@@ -11,7 +11,7 @@ from bokeh.layouts import column, row, WidgetBox
 from bokeh.palettes import Category20_16
 
 # Read in data
-flights = pd.read_csv('complete_flights.csv', index_col=0)[['arr_delay', 'carrier', 'name']]
+flights = pd.read_csv('./files/complete_flights.csv', index_col=0)[['arr_delay', 'carrier', 'name']]
 
 # Available carrier list
 available_carriers = list(flights['name'].unique())
