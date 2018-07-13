@@ -12,8 +12,6 @@ directions = []
 for file in range(len(files)):
     directions.append([files[file].split()[i] for i in range(len(files[file].split()))])
     directions[file][3] = directions[file][3].replace('.XLS', '')
-  
-#output_file("index.html")
 
 df = pd.read_excel('./docs/' + files[0], skiprows=5, index_col=0, usecols=[0,1,3,4,5,6,9]) 
 source = ColumnDataSource(data = dict())
@@ -28,8 +26,6 @@ def update(attr, old, new):
     for i in checkbox_group.active:
        df = pd.read_excel('./docs/' + files[i], skiprows=5, index_col=0, usecols=[0,1,3,4,5,6,9]) 
     source.data = {df.columns.values[column] : df[df.columns.values[column]] for column in range(df.shape[1])}
-
-    #return CustomJS(args=dict(), code=open('./updateTable.js').read())
 
 #def form():
 #   source = ColumnDataSource(df)
@@ -60,6 +56,5 @@ table = widgetbox(data_table)
 
 curdoc().add_root(row(control,table))
 
-#show(layout)
 #bokeh serve --show files\test.py
 update
